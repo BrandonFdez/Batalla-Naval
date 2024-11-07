@@ -10,7 +10,7 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Abre la ventana de inicio
+        // Abre la ventana de inicio.
         new BNFirsStage();
     }
 }
