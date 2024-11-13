@@ -1,14 +1,23 @@
 package com.example.batallanaval.controller;
 
+import com.example.batallanaval.view.BNSecondStage;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 public class BNFirstController {
     @FXML
-    private Label welcomeText;
+    private Button NuevoJuego;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private void ClickNuevoJuego(ActionEvent event) throws IOException {
+        // Cerrar la ventana actual (BNFirstStage)
+        Stage FirstStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        FirstStage.close();
+        // Abrir la ventana posterior (BNSecondStage)
+        BNSecondStage SecondStage = new BNSecondStage();
     }
 }
