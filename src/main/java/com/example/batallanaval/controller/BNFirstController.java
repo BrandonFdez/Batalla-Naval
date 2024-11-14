@@ -11,7 +11,8 @@ import java.io.IOException;
 public class BNFirstController {
     @FXML
     private Button NuevoJuego;
-
+    @FXML
+    private Button JuegoGuardado;
     @FXML
     private void ClickNewGame(ActionEvent event) throws IOException {
         // Cerrar la ventana actual (BNFirstStage)
@@ -20,4 +21,9 @@ public class BNFirstController {
         // Abrir la ventana posterior (BNSecondStage)
         BNSecondStage SecondStage = new BNSecondStage();
     }
+    @FXML
+    void ClickSaveGame(ActionEvent event) {
+
+    }
+
 }
