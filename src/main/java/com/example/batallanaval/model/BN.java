@@ -7,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 public class BN implements IBN {
     @Override
     public Rectangle Frigates() {
-        Rectangle Frigate = new Rectangle(38.5, 300, 35,35);
+        Rectangle Frigate = new Rectangle(38.5, 470, 35,35);
         Frigate.setStroke(Color.BLACK);
         Frigate.setFill(Color.WHITE);
         return Frigate;
@@ -15,7 +15,7 @@ public class BN implements IBN {
 
     @Override
     public Rectangle  Destroyers() {
-        Rectangle Destroyer = new Rectangle(500, 500, 70,35);
+        Rectangle Destroyer = new Rectangle(96.833, 470, 70,35);
         Destroyer.setStroke(Color.BLACK);
         Destroyer.setFill(Color.WHITE);
         return Destroyer;
@@ -23,7 +23,7 @@ public class BN implements IBN {
 
     @Override
     public Rectangle Submarines() {
-        Rectangle Submarine = new Rectangle(40, 40, 105,35);
+        Rectangle Submarine = new Rectangle(190.166, 470, 105,35);
         Submarine.setStroke(Color.BLACK);
         Submarine.setFill(Color.WHITE);
         return Submarine;
@@ -31,7 +31,7 @@ public class BN implements IBN {
 
     @Override
     public Rectangle AircraftCarriers() {
-        Rectangle AircraftCarrier = new Rectangle(40, 40, 140,35);
+        Rectangle AircraftCarrier = new Rectangle(318.5, 470, 140,35);
         AircraftCarrier.setStroke(Color.BLACK);
         AircraftCarrier.setFill(Color.WHITE);
         return AircraftCarrier;
