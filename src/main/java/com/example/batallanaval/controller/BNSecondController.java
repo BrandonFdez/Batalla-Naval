@@ -10,10 +10,10 @@ public class BNSecondController {
     @FXML
     private Pane MyPane;
     private BN BNModel;  // Instancia del modelo BN
-    private Rectangle Frigate;  // Rectángulo para las fragatas
-    private Rectangle Destroyer;  // Rectángulo para los destuctores
-    private Rectangle Submarine;  // Rectángulo para los Submarinos
-    private Rectangle AircraftCarrier;  // Rectángulo para los portaaviones
+    private Rectangle Frigate;  // Rectangulo para las fragatas
+    private Rectangle Destroyer;  // Rectangulo para los destuctores
+    private Rectangle Submarine;  // Rectangulo para los Submarinos
+    private Rectangle AircraftCarrier;  // Rectangulo para los portaaviones
 
     // Metodo de inicialización
     @FXML
