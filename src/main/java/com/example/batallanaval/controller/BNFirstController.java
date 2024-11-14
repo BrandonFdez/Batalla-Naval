@@ -13,7 +13,7 @@ public class BNFirstController {
     private Button NuevoJuego;
 
     @FXML
-    private void ClickNuevoJuego(ActionEvent event) throws IOException {
+    private void ClickNewGame(ActionEvent event) throws IOException {
         // Cerrar la ventana actual (BNFirstStage)
         Stage FirstStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FirstStage.close();

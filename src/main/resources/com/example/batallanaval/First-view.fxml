@@ -6,7 +6,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.batallanaval.controller.BNFirstController">
    <children>
-      <Button fx:id="NuevoJuego" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="45.0" mnemonicParsing="false" onAction="#ClickNuevoJuego" prefHeight="50.0" prefWidth="160.0" text="Nuevo Juego" textAlignment="CENTER">
+      <Button fx:id="NuevoJuego" alignment="CENTER" contentDisplay="CENTER" layoutX="60.0" layoutY="45.0" mnemonicParsing="false" onAction="#ClickNewGame" prefHeight="50.0" prefWidth="160.0" text="Nuevo Juego" textAlignment="CENTER">
          <font>
             <Font name="Georgia" size="18.0" />
          </font>
