@@ -4,6 +4,10 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/Batalla-Naval-Main/pom.xml" />
+>>>>>>> bsjr
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
