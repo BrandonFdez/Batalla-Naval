@@ -17,7 +17,7 @@ public class BNSecondStage extends Stage {
         Scene scene = new Scene(root);
         getIcons().add(new Image(String.valueOf(getClass().getResource("/com/example/batallanaval/images/logoBN.png"))));
         setTitle("Batalla Naval");
-        setResizable(false);
+        setResizable(true);
         setScene(scene);
         show();
     }
