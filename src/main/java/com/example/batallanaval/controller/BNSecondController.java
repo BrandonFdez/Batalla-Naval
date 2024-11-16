@@ -85,7 +85,7 @@ public class BNSecondController {
             disableDragAndRotation(node);
         } else {
             // Si el nodo está fuera del GridPane, devolverlo a su posición inicial
-            //node.setLayoutX(0); esto esta comentado porque me regresaba las naves a abajo del todo
+            //node.setLayoutX(0); //esto esta comentado porque me regresaba las naves a abajo del todo
             //node.setLayoutY(0);
         }
     }
