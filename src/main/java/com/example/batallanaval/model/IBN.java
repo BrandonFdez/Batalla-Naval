@@ -7,6 +7,7 @@ public interface IBN {
     Rectangle Destroyers();
     Rectangle Submarines();
     Rectangle AircraftCarriers();
+    void ShowInstructions();
     void DefeatAlert();
     void ErrorAlert();
     void WinAlert();
