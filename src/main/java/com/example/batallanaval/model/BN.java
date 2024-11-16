@@ -113,7 +113,37 @@ public class BN implements IBN {
 
         // Create a TextArea to display detailed instructions
         TextArea textArea = new TextArea();
-        textArea.setText("Tablero de posición: Representa el territorio del jugador humano..." /* Add full text here */);
+        textArea.setText("Tablero de posición: Representa el territorio del jugador humano, en él se distribuye" +
+                " su flota antes de comenzar la partida y sólo será de observación. Verá la posición de" +
+                " sus barcos y los disparos de su oponente en su territorio, pero no podrá realizar ningún" +
+                " cambio ni disparo en él.\n" +
+                "• Tablero principal: Representa el territorio del jugador máquina, donde tiene" +
+                " desplegada su flota. Será aquí donde se desarrollen los movimientos (disparos) del" +
+                " jugador humano tratando de hundir los barcos enemigos. Este tablero aparecerá en" +
+                " la pantalla del jugador una vez comience la partida y en él quedarán registrados todos" +
+                " sus movimientos, reflejando tanto los disparos al agua como los barcos tocados y" +
+                " hundidos en tiempo real.\n" +
+                "Cada jugador tiene una flota de 10 barcos de diferente tamaño, ubicados de manera" +
+                " horizontal o vertical, por lo que cada uno ocupará un número determinado de casillas en el" +
+                " tablero distribuidos de la siguiente manera:\n" +
+                "• 1 portaaviones: ocupa 4 casillas.\n" +
+                "• 2 submarinos: ocupan 3 casillas cada uno.\n" +
+                "• 3 destructores: ocupan 2 casillas cada uno.\n" +
+                "• 4 fragatas: ocupan 1 casilla cada uno.\n" +
+                "En este juego se tiene la siguientes terminologías y movimientos:\n" +
+                "• Agua: cuando se dispara sobre una casilla donde no está colocado ningún barco" +
+                " enemigo. En el tablero principal del jugador aparecerá una X. Pasa el turno a su" +
+                " oponente.\n" +
+                "• Tocado: cuando se dispara en una casilla en la que está ubicado un barco enemigo" +
+                " que ocupa 2 o más casillas, se destruirá sólo una parte del barco. En el tablero del" +
+                " jugador aparecerá esa parte del barco con una marca indicativa de que ha sido tocado.\n" +
+                "El jugador vuelve a disparar.\n" +
+                "• Hundido: si se dispara en una casilla en la que está ubicado una fragata (1 casilla) u" +
+                " otro barco con el resto de las casillas tocadas, el barco se hundirá, es decir, se ha" +
+                " eliminado ese barco del juego. Aparecerá en el tablero principal del jugador, el barco" +
+                " completo con la marca indicativa de que ha sido hundido. El jugador puede volver a" +
+                " disparar, siempre y cuando no haya hundido toda la flota de su enemigo, en cuyo caso" +
+                " habrá ganado."); /* Add full text here */;
         textArea.setWrapText(true); // Enable text wrapping
         textArea.setEditable(false); // Disable text editing
         alert.getDialogPane().setContent(textArea); // Add the TextArea to the alert
