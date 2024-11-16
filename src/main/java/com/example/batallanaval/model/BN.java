@@ -1,11 +1,38 @@
 package com.example.batallanaval.model;
 
+import javafx.scene.Group;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
 public class BN implements IBN {
+    @Override
+    public Group DrawX() {
+        // Crear dos líneas para formar una "X"
+        Line line1 = new Line(0, 0, 20, 20); // Línea diagonal 1
+        line1.setStroke(Color.RED);
+        line1.setStrokeWidth(3);  // Grosor de la línea
+
+        Line line2 = new Line(0, 20, 20, 0); // Línea diagonal 2
+        line2.setStroke(Color.RED);
+        line2.setStrokeWidth(3);  // Grosor de la línea
+
+        // Crear un grupo que contendrá ambas líneas
+        return new Group(line1, line2);
+    }
+
+    @Override
+    public Circle DrawCircle() {
+        // Crear un círculo con un radio de 50
+        Circle circle = new Circle(14); // Solo se define el tamaño
+        circle.setFill(Color.TRANSPARENT);  // Color de relleno
+        circle.setStroke(Color.GRAY);  // Color del borde
+        circle.setStrokeWidth(4);  // Grosor del borde
+        return circle;
+    }
     @Override
     public Rectangle Frigates() {
         Rectangle Frigate = new Rectangle(38.5, 470, 35,35);
