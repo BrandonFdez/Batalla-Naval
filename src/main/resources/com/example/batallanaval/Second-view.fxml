@@ -17,7 +17,7 @@
       fx:controller="com.example.batallanaval.controller.BNSecondController">
    <children>
       <!-- Instruction button -->
-      <ImageView layoutX="950.0" layoutY="10.0" fitHeight="30.0" fitWidth="30.0" fx:id="instructionsIcon" onMouseClicked="#showInstructions">
+      <ImageView layoutX="930.0" layoutY="470.0" fitHeight="40.0" fitWidth="40.0" fx:id="instructionsIcon" onMouseClicked="#InstructionsClick">
          <image>
             <Image url="@images/instruction.png"/>
          </image>
