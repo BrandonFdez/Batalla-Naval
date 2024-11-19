@@ -1,6 +1,7 @@
 package com.example.batallanaval.controller;
 
 import com.example.batallanaval.model.BN; // Imports the BN class that contains the model for the ship
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.input.MouseButton;
@@ -8,6 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.input.DragEvent;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 
 /**
  * Controller to manage the logic for interacting with the board and game pieces in the Battleship game.
@@ -25,7 +27,7 @@ public class BNSecondController {
     private Rectangle Submarine;  // Rectangle representing the submarine
     private Rectangle AircraftCarrier;  // Rectangle representing the aircraft carrier
     private boolean[][] GridOccupied; // Matrix tracking the occupied cells on the grid
-
+    private Rectangle Highlight = new Rectangle();
     /**
      * Event triggered when a drag event occurs on the grid. Currently not implemented.
      *
@@ -44,8 +46,8 @@ public class BNSecondController {
      */
     private void MakeDraggableAndRotatable(Node Node) {
         final double[] DragCoordinates = new double[2]; // Array to store the difference between the node's position and mouse position
-
-        // Event triggered when the left mouse button is pressed to start dragging
+       
+      // Event triggered when the left mouse button is pressed to start dragging
         Node.setOnMousePressed(event -> {
             if (event.isPrimaryButtonDown()) { // Only responds to left-click to start dragging
                 DragCoordinates[0] = Node.getLayoutX() - event.getSceneX();
@@ -58,6 +60,48 @@ public class BNSecondController {
             if (event.isPrimaryButtonDown()) { // Allows dragging only with left-click
                 Node.setLayoutX(event.getSceneX() + DragCoordinates[0]);
                 Node.setLayoutY(event.getSceneY() + DragCoordinates[1]);
+
+                // Reset the timer every time the mouse moves to track stop event
+                resetMouseStopTimer();
+
+                // Resaltar la zona donde el nodo podría ir
+                Highlight.setWidth(0);  // Limpiar el área destacada
+                Highlight.setHeight(0);
+
+                // Determinar la cantidad de celdas ocupadas por el nodo
+                double spanLength = (Node.getRotate() == 0
+                        ? Node.getBoundsInParent().getWidth() / 35.0
+                        : Node.getBoundsInParent().getHeight() / 35.0);
+
+                // Obtener las coordenadas absolutas del GridPane
+                double gridX = BoardGrid.getLayoutX();
+                double gridY = BoardGrid.getLayoutY();
+
+                // Calcular la posición del nodo en relación al GridPane, ajustado por su posición en el Pane
+                double nodeXInGrid = Node.getBoundsInParent().getMinX() - gridX;
+                double nodeYInGrid = Node.getBoundsInParent().getMinY() - gridY;
+
+                // Ajustar para que se alineen al múltiplo de 35 considerando la posición del GridPane
+                double colIndex = Math.round(nodeXInGrid / 35.0) * 35;
+                double rowIndex = Math.round(nodeYInGrid / 35.0) * 35;
+
+                // Calcular el área resaltada según la orientación (horizontal o vertical)
+                if (Node.getRotate() == 0) { // Horizontal
+                    Highlight.setWidth(spanLength * 35);
+                    Highlight.setHeight(35);
+                    Highlight.setX(gridX + colIndex);
+                    Highlight.setY(gridY + rowIndex);
+                } else { // Vertical
+                    Highlight.setWidth(35);
+                    Highlight.setHeight(spanLength * 35);
+                    Highlight.setX(gridX + colIndex);
+                    Highlight.setY(gridY + rowIndex);
+                }
+
+                Highlight.setOpacity(0.3); // Para que no opaque el grid, solo lo resalte
+                if (!MyPane.getChildren().contains(Highlight)) {
+                    MyPane.getChildren().add(Highlight);
+                }
             }
         });
 
@@ -65,6 +109,10 @@ public class BNSecondController {
         Node.setOnMouseReleased(event -> {
             if (event.getButton() == MouseButton.PRIMARY) { // Only adjusts when the left-click is released
                 snapToGrid(Node); // Adjust the node to the grid
+
+                // Remover el área de resaltado cuando se suelta el nodo
+                MyPane.getChildren().remove(Highlight);
+
             }
         });
 
@@ -103,8 +151,16 @@ public class BNSecondController {
         int spanLength = (int) (node.getRotate() == 0 ? node.getBoundsInParent().getWidth() / cellWidth
                 : node.getBoundsInParent().getHeight() / cellHeight);
 
+        // Adjust the span check based on orientation
+        boolean fitsHorizontally = node.getRotate() == 0 && (colIndex + spanLength) <= BoardGrid.getColumnCount();
+        boolean fitsVertically = node.getRotate() != 0 && (rowIndex + spanLength) <= BoardGrid.getRowCount();
+
+        // Check if the position and orientation fit within the grid
+        if (colIndex >= 0 && rowIndex >= 0 && (fitsHorizontally || fitsVertically)) {
+
         // Check if the position and orientation fit within the grid
         if (colIndex >= 0 && rowIndex >= 0 && colIndex + spanLength <= BoardGrid.getColumnCount() && rowIndex + spanLength <= BoardGrid.getRowCount()) {
+
             // Check if there is any overlap with other ships
             if (!isOverlapping(rowIndex, colIndex, spanLength, node.getRotate() == 0)) {
                 // Mark the occupied cells and place the node on the grid
@@ -118,6 +174,17 @@ public class BNSecondController {
             }
         }
     }
+
+    /**
+     * Reset the timer that will remove the shadow when the mouse stops moving.
+     */
+    private void resetMouseStopTimer() {
+        // Create a pause transition that waits for 0.3 seconds of inactivity
+        PauseTransition pause = new PauseTransition(Duration.seconds(0.8));
+        pause.setOnFinished(event -> MyPane.getChildren().remove(Highlight)); // Remove the shadow after the pause
+        pause.play(); // Start the timer
+    }
+
 
     /**
      * Checks if the node will overlap with any other placed ships on the grid.
