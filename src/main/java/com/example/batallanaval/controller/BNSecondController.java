@@ -46,7 +46,8 @@ public class BNSecondController {
      */
     private void MakeDraggableAndRotatable(Node Node) {
         final double[] DragCoordinates = new double[2]; // Array to store the difference between the node's position and mouse position
-        // Event triggered when the left mouse button is pressed to start dragging
+       
+      // Event triggered when the left mouse button is pressed to start dragging
         Node.setOnMousePressed(event -> {
             if (event.isPrimaryButtonDown()) { // Only responds to left-click to start dragging
                 DragCoordinates[0] = Node.getLayoutX() - event.getSceneX();
@@ -108,8 +109,10 @@ public class BNSecondController {
         Node.setOnMouseReleased(event -> {
             if (event.getButton() == MouseButton.PRIMARY) { // Only adjusts when the left-click is released
                 snapToGrid(Node); // Adjust the node to the grid
+
                 // Remover el área de resaltado cuando se suelta el nodo
                 MyPane.getChildren().remove(Highlight);
+
             }
         });
 
@@ -154,6 +157,10 @@ public class BNSecondController {
 
         // Check if the position and orientation fit within the grid
         if (colIndex >= 0 && rowIndex >= 0 && (fitsHorizontally || fitsVertically)) {
+
+        // Check if the position and orientation fit within the grid
+        if (colIndex >= 0 && rowIndex >= 0 && colIndex + spanLength <= BoardGrid.getColumnCount() && rowIndex + spanLength <= BoardGrid.getRowCount()) {
+
             // Check if there is any overlap with other ships
             if (!isOverlapping(rowIndex, colIndex, spanLength, node.getRotate() == 0)) {
                 // Mark the occupied cells and place the node on the grid
