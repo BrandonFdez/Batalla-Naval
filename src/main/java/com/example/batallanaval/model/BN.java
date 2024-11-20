@@ -59,7 +59,7 @@ public class BN implements IBN {
     public Rectangle Frigates() {
         Rectangle Frigate = new Rectangle(38.5, 470, 35, 35); // Define dimensions and position
         Frigate.setStroke(Color.BLACK);
-        Frigate.setFill(Color.GRAY);
+        Frigate.setFill(Color.LIGHTGRAY);
         return Frigate;
     }
 
@@ -72,7 +72,7 @@ public class BN implements IBN {
     public Rectangle Destroyers() {
         Rectangle Destroyer = new Rectangle(96.833, 470, 70, 35); // Define dimensions and position
         Destroyer.setStroke(Color.BLACK);
-        Destroyer.setFill(Color.GRAY);
+        Destroyer.setFill(Color.WHITESMOKE);
         return Destroyer;
     }
 
@@ -85,7 +85,7 @@ public class BN implements IBN {
     public Rectangle Submarines() {
         Rectangle Submarine = new Rectangle(190.166, 470, 105, 35); // Define dimensions and position
         Submarine.setStroke(Color.BLACK);
-        Submarine.setFill(Color.GRAY);
+        Submarine.setFill(Color.MIDNIGHTBLUE);
         return Submarine;
     }
 

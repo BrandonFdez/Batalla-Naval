@@ -40,7 +40,7 @@ public class BNSecondStage extends Stage {
         setTitle("Batalla Naval");
 
         // Set the stage to be resizable
-        setResizable(true);
+        setResizable(false);
 
         // Set the scene on the stage and display it
         setScene(scene);
