@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<Pane fx:id="MyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.batallanaval.controller.BNSecondController">
+
+<Pane fx:id="MyPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.batallanaval.controller.BNSecondController">
    <children>
       <!-- Instruction button -->
-      <ImageView layoutX="930.0" layoutY="470.0" fitHeight="40.0" fitWidth="40.0" fx:id="instructionsIcon" onMouseClicked="#InstructionsClick">
+      <ImageView fx:id="instructionsIcon" fitHeight="40.0" fitWidth="40.0" layoutX="930.0" layoutY="470.0" onMouseClicked="#InstructionsClick">
          <image>
-            <Image url="@images/instruction.png"/>
+            <Image url="@images/instruction.png" />
          </image>
       </ImageView>
-      <GridPane fx:id="BoardGrid" alignment="CENTER" gridLinesVisible="true" layoutX="73.5" layoutY="55.0" onDragDropped="#OnDragGrid" prefHeight="350.0" prefWidth="350.0">
+      <GridPane fx:id="BoardGrid" alignment="CENTER" gridLinesVisible="true" layoutX="73.5" layoutY="55.0" onDragDropped="#OnDragGrid" prefHeight="350.0" prefWidth="350.0" style="-fx-background-color: darkblue;">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -144,7 +146,7 @@
             <Font name="Consolas" size="16.0" />
          </font>
       </Label>
-      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="576.5" layoutY="55.0" prefHeight="350.0" prefWidth="350.0">
+      <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="576.5" layoutY="55.0" prefHeight="350.0" prefWidth="350.0" style="-fx-background-color: darkblue;">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -280,5 +282,10 @@
             <Font name="Consolas" size="16.0" />
          </font>
       </Label>
+      <Button layoutX="672.0" layoutY="470.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" text="Guardar Partida">
+         <font>
+            <Font name="Consolas" size="16.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
